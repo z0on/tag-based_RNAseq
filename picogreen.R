@@ -11,12 +11,13 @@ pg=pg[pg$well!="A1",]
 pg=pg[pg$fluo>0,]
 pg$fluo=log(pg$fluo,10)
 cal=pg[grep("[ABCDEFGH]1$",pg$well),]
-cal$conc=log(c(100,50,25,12.5,6.25,3.125,1.5625),10)
+cal$conc=log(c(100,100/3,100/3^2,100/3^3,100/3^4,100/3^5,100/3^6),10)
+str(cal)
 plot(conc~fluo,cal,xaxt="n",yaxt="n",bty="n",xlab="fluorescence",ylab="DNA concentration (ng/ul)",mgp=c(2.1,1,0))
 ll=lm(conc~fluo,cal)
 abline(ll,col="red")
-axis(1,at=cal$fluo,labels=10^(cal$fluo))
-axis(2,at=cal$conc,labels=10^(cal$conc))
+axis(1,at=cal$fluo,labels=round(10^(cal$fluo),0))
+axis(2,at=cal$conc,labels=signif(10^(cal$conc),2))
 sam=pg[-grep("[ABCDEFGH]1$",pg$well),]
 sam=sam[sam$fluo>0,]
 sam$conc=predict(ll,newdata=data.frame(fluo=sam$fluo))
