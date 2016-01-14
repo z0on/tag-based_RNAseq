@@ -5,7 +5,7 @@ Mikhail Matz, matz@utexas.edu
 
 Tag-based RNA-seq is a method of measuring expression of eukaryotic protein-coding genes on a whole-genome scale. Compared to standard RNA-seq it is very cost-efficient (on the order of $50/sample, all inclusive), allowing extensive experimental designs. The method, however, requires a reference (transcriptome or genome) to map reads to.  
 
-The method has been described in Meyer, Aglyamova and Matz, Mol Ecol 2011 ( doi: 10.1111/j.1365-294X.2011.05205.x ). Since then it has been adapted for Illumina sequencing, lab procedures have been further simplified, and removal of PCR duplicates has been implemented.
+The method has been described in Meyer, Aglyamova and Matz, Mol Ecol 2011 ( http://bit.ly/1Zy8Ki7 ). Since then it has been adapted for Illumina sequencing, lab procedures have been further simplified, and removal of PCR duplicates has been implemented.
 
 Lohman et al extensively benchmarked TagSeq against standard RNA-seq (NEBNext) and found that tag-seq quantifies transcript abndances more accurately, for about 10% of the cost: http://biorxiv.org/content/early/2016/01/11/036426
 
