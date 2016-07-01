@@ -36,21 +36,30 @@ my $name2="";
 my $seq="";
 my $qua="";
 my %seen={};
+my $dups=0;
+my $tot=0;
+my $nohead=0;
+my $kept=0;
 open INP, $fq or die "cannot open file $fq\n";
 my $ll=3;
 while (<INP>) {
 	if ($ll==3 && $_=~/^(\@.+)$/ ) {
 		$name2=$1; 
+		$tot++;
 		if ($seq=~/^($lead)(.+)/) {	
 			my $start=substr($2,0,20);
 			my $idtag=$1.$start;
 			if (!$seen{$idtag} and $idtag!~/N/) {
 				$seen{$idtag}=1;
 				$trim=length($1);
+				$kept++;
 				print "$name\n$2\n+\n",substr($qua,$trim),"\n";
-			}
+			} else { $dups++; }
+		} 
+		else { 
+			$nohead++; 
+			if ($keep and $name) { print "$name\n$seq\n+\n",$qua,"\n";}
 		}
-		elsif ($keep and $name) { print "$name\n$seq\n+\n",$qua,"\n";}
 		$seq="";
 		$ll=0;
 		$qua="";
@@ -71,8 +80,21 @@ while (<INP>) {
 }
 $name2=$1; 
 if ($seq=~/^($lead)(.+)/) {
-	$trim=length($1);
-        print "$name\n$2\n+\n",substr($qua,$trim),"\n";
+	my $start=substr($2,0,20);
+	my $idtag=$1.$start;
+	if (!$seen{$idtag} and $idtag!~/N/) {
+		$seen{$idtag}=1;
+		$trim=length($1);
+		print "$name\n$2\n+\n",substr($qua,$trim),"\n";
+		$kept++;
+	} else { $dups++; }
+} 
+else { 
+	$nohead++; 
+	if ($keep and $name) { print "$name\n$seq\n+\n",$qua,"\n";}
 }
-elsif ($keep) { print "$name\n$seq\n+\n",$qua,"\n";}
+warn "
+file\ttotal\tnoheader\tduplicates\tkept
+$fq\t$tot\t$nohead\t$dups\t$kept
 
+";
