@@ -1,3 +1,5 @@
+### We are currently having problems sequencing TagSeq libraries produced whith the new "micro" protocol on HiSeq 4000. The issues will be resilved in a month or so. The old protocol on HiSeq 2500 definitely works, so please go with that if you cannot wait.
+
 Genome-wide gene expression profiling with tag-based RNA-seq (TagSeq)
 ------------------------------------------------------------
 
@@ -7,7 +9,7 @@ Tag-based RNA-seq is a method of measuring expression of eukaryotic protein-codi
 
 The method has been described in Meyer, Aglyamova and Matz, Mol Ecol 2011 ( http://bit.ly/1Zy8Ki7 ). Since then it has been adapted for Illumina sequencing, lab procedures have been further simplified, and removal of PCR duplicates has been implemented.
 
-Lohman et al extensively benchmarked TagSeq against standard RNA-seq (NEBNext) and found that tag-seq quantifies transcript abndances more accurately, for about 10% of the cost: http://biorxiv.org/content/early/2016/01/11/036426
+Lohman et al extensively benchmarked TagSeq against standard RNA-seq (NEBNext) and found that tag-seq quantifies transcript abndances more accurately, for about 10% of the cost: http://onlinelibrary.wiley.com/doi/10.1111/1755-0998.12529/abstract
 
 This project provides the up-to-date wet lab protocol, scripts and walkthoughs for initial sequence data processing (from reads to gene counts), including:
 - concatenating raw sequence files according to the sampling design;
