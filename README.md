@@ -1,4 +1,4 @@
-### We are currently having problems sequencing TagSeq libraries produced whith the new "micro" protocol on HiSeq 4000. The issues will be resilved in a month or so. The old protocol (March 2016) on HiSeq 2500 definitely works, so please go with that if you cannot wait.
+### We are currently having problems sequencing TagSeq libraries on HiSeq 4000. HiSeq 2500 definitely works.
 
 Genome-wide gene expression profiling with tag-based RNA-seq (TagSeq)
 ------------------------------------------------------------
