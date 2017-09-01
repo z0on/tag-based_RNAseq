@@ -36,30 +36,31 @@ my $name2="";
 my $seq="";
 my $qua="";
 my %seen={};
-my $dups=0;
-my $tot=0;
-my $nohead=0;
-my $kept=0;
 open INP, $fq or die "cannot open file $fq\n";
 my $ll=3;
+my $nohead=0;
+my $dups=0;
+my $ntag;
+my $tot=0;
+my $goods=0;
 while (<INP>) {
 	if ($ll==3 && $_=~/^(\@.+)$/ ) {
-		$name2=$1; 
 		$tot++;
+		$name2=$1; 
 		if ($seq=~/^($lead)(.+)/) {	
 			my $start=substr($2,0,20);
 			my $idtag=$1.$start;
 			if (!$seen{$idtag} and $idtag!~/N/) {
 				$seen{$idtag}=1;
 				$trim=length($1);
-				$kept++;
 				print "$name\n$2\n+\n",substr($qua,$trim),"\n";
-			} else { $dups++; }
-		} 
-		else { 
-			$nohead++; 
-			if ($keep and $name) { print "$name\n$seq\n+\n",$qua,"\n";}
+				$goods++;
+			}
+			elsif ($seen{$idtag}) { $dups++; }
+			else { $ntag++; }
 		}
+		elsif ($keep and $name) { print "$name\n$seq\n+\n",$qua,"\n";}
+		else {$nohead++;}
 		$seq="";
 		$ll=0;
 		$qua="";
@@ -78,23 +79,18 @@ while (<INP>) {
 	}
 	else { $ll=2;}
 }
-$name2=$1; 
-if ($seq=~/^($lead)(.+)/) {
-	my $start=substr($2,0,20);
-	my $idtag=$1.$start;
-	if (!$seen{$idtag} and $idtag!~/N/) {
-		$seen{$idtag}=1;
-		$trim=length($1);
-		print "$name\n$2\n+\n",substr($qua,$trim),"\n";
-		$kept++;
-	} else { $dups++; }
-} 
-else { 
-	$nohead++; 
-	if ($keep and $name) { print "$name\n$seq\n+\n",$qua,"\n";}
-}
-warn "
-file\ttotal\tnoheader\tduplicates\tkept
-$fq\t$tot\t$nohead\t$dups\t$kept
 
-";
+                if ($seq=~/^($lead)(.+)/) {
+                        my $start=substr($2,0,20);
+                        my $idtag=$1.$start;
+                        if (!$seen{$idtag} and $idtag!~/N/) {
+                                $seen{$idtag}=1;
+                                $trim=length($1);
+                                print "$name\n$2\n+\n",substr($qua,$trim),"\n";
+                                $goods++;
+                        }
+                        elsif ($seen{$idtag}) { $dups++; }
+                        else { $ntag++; }
+                }
+elsif ($keep and $name) { print "$name\n$seq\n+\n",$qua,"\n";}
+warn "$fq\ttotal:$tot\tgoods:$goods\tdups:$dups\tnoheader:$nohead\tN.in.header:$ntag\n";
