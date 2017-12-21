@@ -1,4 +1,4 @@
-### Problems with HiSeq 4000 have been solved. Please use protocol from Dcember 2017 or later.
+### Problems with HiSeq 4000 have been solved. Please use protocol from December 2017 or later.
 
 Genome-wide gene expression profiling with tag-based RNA-seq (TagSeq)
 ------------------------------------------------------------
