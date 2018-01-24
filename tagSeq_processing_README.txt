@@ -9,7 +9,7 @@ fastx_toolkit: http://hannonlab.cshl.edu/fastx_toolkit/download.html
 bowtie2: http://bowtie-bio.sourceforge.net/index.shtml 
 
 #-----------------------
-# install RNA-seq scripts
+# install tag-seq scripts
 
 git clone https://github.com/z0on/tag-based_RNAseq.git
 
