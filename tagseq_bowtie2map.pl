@@ -2,7 +2,7 @@
 
 my $usage= "
 
-iRNAseq_bowtie2map.pl :
+tagseq_bowtie2map.pl :
 
 Prints out a list of bowtie2 calls to map Illumina RNA-seq reads,  one for each reads file.
 Make sure to run bowtie2-build on your transcriptome before running this.
