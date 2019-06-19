@@ -1,9 +1,11 @@
-### Problems with HiSeq 4000 have been solved. Please use protocol from December 2017 or later.
-
 Genome-wide gene expression profiling with tag-based RNA-seq (TagSeq)
 ------------------------------------------------------------
 
 Mikhail Matz, matz@utexas.edu
+
+Current library preparation protocols (feel free to comment!):
+"micro" version (1-10 ng total RNA): https://docs.google.com/document/d/1ySHaW-m53q13H7mIfBl8Rpye_Ji2zBZ0zlWq_PTYmEg/edit?usp=sharing
+simplified version (100 ng of total RNA): https://docs.google.com/document/d/1wg-MGPTRjDu0KJ_6hJcT8FUZ3650nzfOpwBK8bzxL2w/edit?usp=sharing
 
 Tag-based RNA-seq is a method of measuring expression of eukaryotic protein-coding genes on a whole-genome scale. Compared to standard RNA-seq it is very cost-efficient (on the order of $50/sample, all inclusive), allowing extensive experimental designs. The method, however, requires a reference (transcriptome or genome) to map reads to.  
 
