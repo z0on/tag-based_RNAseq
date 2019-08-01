@@ -3,6 +3,8 @@ Genome-wide gene expression profiling with tag-based RNA-seq (TagSeq)
 
 Mikhail Matz, matz@utexas.edu
 
+NOW TESTED WITH NOVASEQ!
+
 Current library preparation protocols (feel free to comment!):
 
 "micro" version (1-10 ng total RNA): https://docs.google.com/document/d/1ySHaW-m53q13H7mIfBl8Rpye_Ji2zBZ0zlWq_PTYmEg/edit?usp=sharing
