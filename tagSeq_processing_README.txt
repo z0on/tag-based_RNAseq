@@ -5,7 +5,7 @@ NOTE: in many places throughout this walkthrough you will need to execute a long
 Make sure you have the following tools installed and 
 available on your cluster:
 
-fastx_toolkit: http://hannonlab.cshl.edu/fastx_toolkit/download.html
+cutadapt: https://cutadapt.readthedocs.io/en/stable/installation.html
 bowtie2: http://bowtie-bio.sourceforge.net/index.shtml 
 
 #-----------------------
